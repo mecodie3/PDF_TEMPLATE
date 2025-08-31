@@ -18,6 +18,10 @@ for index,row in df.iterrows():
     pdf.set_text_color(100,100,100)
     pdf.cell(w=0,h=12,txt=row["Topic"],align="L",
          ln=1)
+
+    #add multiple lines,every 10mm
+    for y in range(20,298,10):
+        pdf.line(10,y,200,y)
     pdf.line(10,21,200,21)
 
     #add the footer:in mm
@@ -37,6 +41,9 @@ for index,row in df.iterrows():
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
+        # add multiple lines,every 10mm
+        for y in range(20, 298, 10):
+            pdf.line(10, y, 200, y)
 pdf.output("output.pdf")
 
 
